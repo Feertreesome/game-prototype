@@ -1,0 +1,45 @@
+<div class="wrapper vh-100 investment-gradient">
+  <div class="active-title">
+    <h2>ACTIVE ROOMS</h2>
+  </div>
+  <div class="ended-title">
+    <h2>ENDED ROOMS</h2>
+  </div>
+  <div class="active">
+    <div class="scroll-container" (scroll)="handleScroll()">
+      <div class="card my-3" (click)="goToGarage(card)" *ngFor="let card of activeTestData; index as i">
+        <div class="row no-gutters">
+          <div class="col-sm-5">
+            <img class="card-img" src="/assets/img/cypto-tumb/crypto-1.jpeg" alt="Suresh Dasari Card" />
+          </div>
+          <div class="col-sm-7">
+            <div class="card-body">
+              <h5 class="card-title">{{ card.runName }}</h5>
+              <p class="card-text">Prize Pool: ${{ card.prizePool }}</p>
+              <p class="card-text">in {{ card.startTime }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ended">
+    <div class="scroll-container" (scroll)="handleScroll()">
+      <div class="card my-3" *ngFor="let card of endedTestData">
+        <div class="row no-gutters">
+          <div class="col-sm-5">
+            <img class="card-img" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="Suresh Dasari Card" />
+          </div>
+          <div class="col-sm-7">
+            <div class="card-body">
+              <h5 class="card-title">{{ card.runName }}</h5>
+              <p class="card-text">Prize Pool: ${{ card.prizePool }}</p>
+              <p class="card-text">in {{ card.startTime }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

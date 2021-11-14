@@ -1,0 +1,74 @@
+h2 {
+  font-family: monospace;
+  font-weight: 600;
+}
+
+.scroll-container {
+
+}
+
+:host {
+  background-size: cover;
+  height: 100%;
+}
+
+.chat-container {
+  /*height: 100%;*/
+}
+
+.wrapper {
+  /*height: 100%;*/
+  /*overflow: hidden;*/
+  display: grid;
+  grid-template-areas:
+  'title1 title1 title2 title2'
+  'active active ended ended';
+  /*grid-template-rows: repeat(2, 1fr);*/
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+.ended {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  justify-self: center;
+  grid-area: ended;
+}
+
+.card-img {
+  width: 128px;
+}
+
+.ended-title {
+  justify-self: center;
+  grid-area: title2;
+}
+
+.active {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  justify-self: center;
+  grid-area: active;
+}
+
+.active-title {
+  justify-self: center;
+  grid-area: title1;
+}
+
+.rooms-scroll {
+  /*overflow-x: hidden;*/
+  /*overflow-y: scroll;*/
+}
+
+.investment-gradient {
+  /* fallback for old browsers */
+  background: #cba123;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));
+}

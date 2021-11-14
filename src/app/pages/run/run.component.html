@@ -1,0 +1,126 @@
+<div class="vh-100">
+  <div class="wrapper" [ngClass]="{ attack: selectedParticipant }">
+    <div class="header d-flex justify-content-evenly">
+      <div class="leader-text">Leader Board until 1st wave</div>
+      <button class="info">i</button>
+    </div>
+
+    <div class="load d-flex container">
+      <div class="d-flex w-100 load-box">
+        <div class="progress w-100">
+          <div
+            class="progress-bar"
+            role="progressbar"
+            style="width: 25%"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+        <div class="dot"></div>
+        <div class="progress w-100">
+          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="dot"></div>
+        <div class="progress w-100">
+          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+      <div class="d-flex time">12:34</div>
+    </div>
+
+    <div class="leader-board" [ngClass]="{ selected: selectedParticipant }">
+      <div class="container">
+        <div style="padding-bottom: 3px" *ngFor="let participant of participants">
+          <div
+            class="row"
+            [ngClass]="{ 'my-user': participant.userName === 'My User', 'active-user': selectedParticipant }"
+            (click)="selectUser(participant)"
+          >
+            <div class="col">
+              <img
+                class="d-flex mx-1 col p-0 avatar"
+                style="max-width: 50px"
+                src="/assets/img/cypto-tumb/crypto-2.jpg"
+                alt="Card"
+              />
+              <div class="d-flex bage">sum</div>
+            </div>
+            <div class="col p-0" *ngFor="let cr of participant.crypto; index as i">
+              <img
+                class="d-flex tumb gup-{{ i }}"
+                [ngClass]="{ 'active-tumb': selectedParticipant, 'mx-1': !selectedParticipant }"
+                src="/assets/img/cypto-tumb/crypto-1.jpeg"
+                alt="Card"
+              />
+              <div class="cost" [ngClass]="{ minus: cr.crypto.includes('-'), 'active-cost': selectedParticipant }">
+                {{ cr.crypto }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="graph" *ngIf="!selectedParticipant"></div>
+
+    <div class="attack-field graph" *ngIf="selectedParticipant">
+      <div class="attack-select container">
+        <div class="row centered-attack">
+          <div class="col">
+            <img
+              class="d-flex mx-1 col p-0 avatar"
+              style="max-width: 50px"
+              src="/assets/img/cypto-tumb/crypto-2.jpg"
+              alt="Card"
+            />
+            <div class="d-flex bage">sum</div>
+          </div>
+          <div class="col p-0" *ngFor="let cr of attackedParticipant.crypto; index as i">
+            <div class="w-100">
+              <img class="d-flex tumb m-auto" src="/assets/img/cypto-tumb/crypto-1.jpeg" alt="Card" />
+            </div>
+            <div class="cost" [ngClass]="{ minus: cr.crypto.includes('-') }">
+              {{ cr.crypto }}
+            </div>
+          </div>
+        </div>
+        <div class="row w-100">
+          <div class="col">
+            <div class="container card-field">
+              <div class="row">
+                <div class="attack-card">
+                  <img src="/assets/img/attack-card/card-img/Shape.svg" alt="" />
+                </div>
+              </div>
+              <div class="row cart-text">
+<!--                <div class="cart-text">-->
+                  <span class="col">Camouflag</span>
+                  <img class="col" src="/assets/img/attack-card/icons/vector.svg" alt="" />
+                  <img class="col" src="/assets/img/attack-card/icons/vector2.svg" alt="" />
+<!--                </div>-->
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="container">
+              <div class="row">
+                <div class="attack-card">
+                  <img src="/assets/img/attack-card/card-img/Shape.svg" alt="" />
+                </div>
+              </div>
+              <div class="row">
+                <div>
+                  <span class="">Camouflag</span>
+                  <img src="/assets/img/attack-card/icons/vector.svg" alt="" />
+                  <img src="/assets/img/attack-card/icons/vector2.svg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
