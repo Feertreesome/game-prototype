@@ -1,0 +1,29 @@
+.wrapper {
+  height: 100%;
+  /*display: grid;*/
+  /*grid-template-areas:*/
+  /*  'title1 title1 title2 title2'*/
+  /*  'active active ended ended';*/
+  /*!*grid-template-rows: repeat(2, 1fr);*!*/
+  /*grid-template-columns: repeat(4, 1fr);*/
+  /*gap: 10px;*/
+  /*justify-items: center;*/
+}
+
+.level-card {
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  background-color: #f2f7f9;
+  padding: 10px;
+  width: 50%;
+  border-radius: 5px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}

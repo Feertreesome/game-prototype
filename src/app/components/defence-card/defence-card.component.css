@@ -1,0 +1,65 @@
+.attack-card {
+  width: inherit;
+}
+
+.cart-text {
+  border: solid #f2f7f9 2px;
+  border-radius: 5px;
+  width: inherit;
+  margin-top: 3px;
+  height: 13px;
+  display: block;
+  position: relative;
+}
+
+.card-wrap {
+  align-items: center;
+  height: 7px;
+}
+
+.select-card {
+  background: transparent;
+  margin: inherit;
+  padding: inherit;
+  border: none;
+  height: inherit;
+  width: inherit;
+}
+
+.select-card:active {
+  cursor: pointer;
+  outline-color: blue;
+  outline-width: 2px;
+}
+
+.card-w {
+  padding: 0;
+  width: 4rem;
+  margin-right: 3px;
+}
+
+.card-w:hover {
+  box-shadow: 0 0 10px black;
+  border-radius: 3px;
+  margin-right: 3px;
+}
+
+.icon {
+  position: absolute;
+  height: 6px;
+  width: 6px;
+}
+
+.gap-1 {
+  margin: 47px;
+}
+
+.text {
+  position: absolute;
+  font-size: 9px;
+  font-weight: 400;
+}
+
+.gap-2 {
+  margin: 52px;
+}

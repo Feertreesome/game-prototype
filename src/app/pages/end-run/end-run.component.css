@@ -1,0 +1,46 @@
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    'users users winner winner winner .';
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  justify-items: center;
+  height: 100%;
+}
+
+.users-grid {
+  align-self: center;
+  justify-self: center;
+  grid-area: users;
+}
+
+.winner-grid {
+  width: 100%;
+  grid-area: winner;
+}
+
+.user-card {
+  align-self: center;
+  align-items: center;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.bage {
+  text-align: center;
+  background-color: #c4c5f0;
+  padding-left: 9px;
+  padding-right: 9px;
+  margin-top: -20px;
+  border-radius: 3px;
+  position: fixed;
+}
+
+.table-direction {
+  display: flex;
+  flex-direction: column;
+  transition: all 3s;
+}
+

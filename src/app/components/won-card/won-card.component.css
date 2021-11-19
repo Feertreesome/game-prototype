@@ -1,0 +1,43 @@
+.won-card {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: grid;
+}
+
+.first-block {
+  width: 100%;
+}
+
+.second-block {
+  width: 80%;
+}
+
+.third-block {
+  width: 50%;
+}
+
+.won-text {
+  padding: 4px;
+  text-align: center;
+  height: 30px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  background-color: #F2F7F9;
+  border-radius: 5px;
+}
+
+.won-img {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+
+.avatar {
+  margin: -23px 0 0 -10px;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

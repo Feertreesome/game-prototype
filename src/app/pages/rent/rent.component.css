@@ -1,0 +1,82 @@
+.wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+    'header header header header header header header header header header'
+    'rent rent rent rent rent rent rent rent rent rent'
+    'rent rent rent rent rent rent rent rent rent rent'
+    'rent rent rent rent rent rent rent rent rent rent'
+    'rent rent rent rent rent rent rent rent rent rent'
+    'rent rent rent rent rent rent rent rent rent rent'
+    'rent rent rent rent rent rent rent rent rent rent';
+  /*grid-template-rows: repeat(2, 1fr);*/
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+.header {
+  grid-area: header;
+}
+
+.rent {
+  grid-area: rent;
+}
+
+.grade {
+  align-items: center;
+  border-radius: 2px;
+  background-color: #d1eafc;
+}
+
+.info {
+  background-color: #c4c5f0;
+  height: 16px;
+  width: 16px;
+  font-size: 10px;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mining-device {
+  text-align: center;
+  border-radius: 3px;
+  background-color: #ddeaf3;
+}
+
+.mining-device {
+  text-align: center;
+  border-radius: 3px;
+  background-color: #ddeaf3;
+}
+
+.dev {
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.mining-text {
+  border-radius: 3px;
+  background-color: #bfd4e4;
+}
+
+.token {
+  text-align: center;
+  align-items: center;
+}
+
+.tips {
+  text-align: center;
+}
+
+.tips-text {
+  border-radius: 2px;
+  border: 1px solid #ddeaf3;
+  width: 4rem;
+}

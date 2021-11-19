@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col flex-column card-w" *ngFor="let card of attacksCards" (click)="selectCard(card, $event)">
+    <div class="" style="width: 4rem">
+      <div class="attack-card">
+        <button class="select-card" (blur)="checkGlow($event)">
+          <img class="w-100" src="/assets/img/attack-card/card-img/Shape.svg" alt="" />
+        </button>
+      </div>
+    </div>
+    <div class="cart-text">
+      <div class="d-flex card-wrap">
+        <span class="text">{{card}}</span>
+        <img class="icon gap-1" src="/assets/img/attack-card/icons/vector.svg" alt="" />
+        <img class="icon gap-2" src="/assets/img/attack-card/icons/vector2.svg" alt="" />
+      </div>
+    </div>
+  </div>
+</div>

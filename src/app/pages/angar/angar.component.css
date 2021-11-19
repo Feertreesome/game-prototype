@@ -1,0 +1,137 @@
+.wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+    'banxter banxter banxter . middle middle middle middle middle middle middle middle middle middle .list list list list list'
+    'banxter banxter banxter . middle middle middle middle middle middle middle middle middle middle .list list list list list'
+    'banxter banxter banxter . middle middle middle middle middle middle middle middle middle middle .list list list list list'
+    'banxter banxter banxter . middle middle middle middle middle middle middle middle middle middle .list list list list list'
+    'banxter banxter banxter . middle middle middle middle middle middle middle middle middle middle .list list list list list'
+    'banxter banxter banxter . middle middle middle middle middle middle middle middle middle middle .list list list list list'
+    'banxter banxter banxter . middle middle middle middle middle middle middle middle middle middle .list list list list list'
+    'banxter banxter banxter . middle middle middle middle middle middle middle middle middle middle .list list list list list'
+    'banxter banxter banxter . run run run run run run run run run run .list list list list list'
+    'banxter banxter banxter . run run run run run run run run run run .list list list list list';
+  /*grid-template-rows: repeat(2, 1fr);*/
+  grid-template-columns: repeat(20, 1fr);
+  gap: 1px;
+  justify-items: center;
+}
+
+.banxter {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  grid-area: banxter;
+}
+
+.middle {
+  grid-area: middle;
+  display: flex;
+  flex-direction: row;
+}
+
+.run {
+  grid-area: run;
+}
+
+.list {
+  grid-area: list;
+}
+
+.card-wrap {
+  align-items: center;
+
+  border-radius: 3px;
+  background-color: #bfd4e4;
+  margin: 5px 0 5px 0;
+}
+
+.avatar {
+  width: 1.5rem;
+  border-radius: 50%;
+}
+
+.token-text {
+}
+
+.text {
+  background-color: #ddeaf3;
+  border-radius: 3px;
+  font-size: 10px;
+  padding: 0 5px 0 5px;
+}
+
+.side-avatar {
+  width: 3rem;
+  border-radius: 50%;
+}
+
+.mining {
+  font-size: 10px;
+}
+
+.active-run {
+  border-radius: 3px;
+  background-color: #bfd4e4;
+}
+
+.left-middle {
+  align-items: center;
+  border-radius: 3px;
+  background-color: #bfd4e4;
+  width: 70%;
+}
+
+.right-middle {
+  text-align: center;
+  border-radius: 3px;
+  width: 30%;
+}
+
+.big-avatar {
+  border-radius: 50%;
+  width: 4rem;
+}
+
+.big-text {
+  background-color: #ddeaf3;
+  border-radius: 3px;
+  font-size: 20px;
+  padding: 0 5px 0 5px;
+}
+
+.big-mining {
+  font-size: 20px;
+}
+
+.else-cards {
+  align-items: center;
+  justify-content: center;
+  background-color: #bfd4e4;
+  border-radius: 3px;
+}
+
+.new-run {
+  height: 4rem;
+  background-color: #bfd4e4;
+  border-radius: 3px;
+  align-items: center;
+}
+
+.run-text {
+  border-radius: 3px;
+  width: 70%;
+  background-color: #ddeaf3;
+}
+
+.side-card {
+  align-items: center;
+  text-align: center;
+  background-color: #bfd4e4;
+  border-radius: 3px;
+}
+
+.hard {
+  border-radius: 3px;
+  background-color: #ddeaf3;
+}

@@ -1,0 +1,77 @@
+.wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+    '. . . . . . . . . . cards cards cards cards'
+    '. banxter banxter banxter banxter banxter banxter banxter banxter . cards cards cards cards'
+    '. banxter banxter banxter banxter banxter banxter banxter banxter . cards cards cards cards'
+    '. banxter banxter banxter banxter banxter banxter banxter banxter . cards cards cards cards'
+    '. banxter banxter banxter banxter banxter banxter banxter banxter . cards cards cards cards'
+    '. banxter banxter banxter banxter banxter banxter banxter banxter . cards cards cards cards'
+    '. banxter banxter banxter banxter banxter banxter banxter banxter . cards cards cards cards'
+    '. banxter banxter banxter banxter banxter banxter banxter banxter . cards cards cards cards'
+    '. banxter banxter banxter banxter banxter banxter banxter banxter . cards cards cards cards'
+    '. . . . . . . . . . cards cards cards cards';
+  /*grid-template-rows: repeat(2, 1fr);*/
+  grid-template-columns: repeat(14, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+.banxter {
+  background-color: #21a300;
+  grid-area: banxter;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cards {
+  background-color: #a3002a;
+  grid-area: cards;
+  display: flex;
+  flex-direction: row;
+}
+
+.avatar {
+  border-radius: 3px;
+  width: 57px;
+  height: 57px;
+}
+
+.items {
+  border-radius: 3px;
+  margin: 3px;
+  background-color: antiquewhite;
+}
+
+.button-container {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.side-cards {
+  width: 4rem;
+  text-align: center;
+}
+
+.side-card {
+  border-radius: 3px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 4rem;
+}
+
+.card-text {
+  font-size: 10px;
+  background-color: #21a300;
+  border-radius: 3px;
+}
+
+.line {
+  margin: 10px;
+}

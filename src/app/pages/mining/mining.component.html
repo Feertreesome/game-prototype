@@ -1,0 +1,30 @@
+<div class="vh-100">
+  <div class="wrapper">
+    <div class="header w-100">
+      <div class="banxter d-flex flex-row">
+        <div class="mx-2">Banxter</div>
+        <div class="grade d-flex flex-row mx-2" *ngFor="let grade of grades">
+          Grades
+          <button class="info mx-2">i</button>
+        </div>
+      </div>
+      <div class="device d-flex flex-row">
+        <div class="mining-device w-100 h-100 m-2" *ngFor="let grade of grades">
+          <div class="dev">VIDEOCARDS</div>
+          <div class="text">DEFAULT</div>
+        </div>
+      </div>
+    </div>
+    <div class="mining w-100">
+      <div class="token d-flex flex-column">
+        <div class="mining-text my-2" style="width: 10rem">some text</div>
+        <div class="mining-text my-2" style="width: 15rem">some text</div>
+        <div class="mining-text my-2" style="width: 15rem">some text</div>
+        <div class="mining-text my-2" style="width: 13rem">some text</div>
+        <button *ngIf="!load" class="collect my-2 btn btn-primary">Collect tokens</button>
+        <button *ngIf="load" class="collect my-2 btn btn-secondary">Collect tokens in 4h 34m</button>
+      </div>
+<!--      <div class="time">hello</div>-->
+    </div>
+  </div>
+</div>

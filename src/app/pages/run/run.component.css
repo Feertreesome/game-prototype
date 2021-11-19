@@ -10,6 +10,43 @@
   background: linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));
 }
 
+.table-direction {
+  display: flex;
+  flex-direction: column;
+  transition: all 3s;
+}
+
+.user-order-0 {
+  order: 0;
+  /*animation: flexanimation 1s ease-out;*/
+}
+
+.user-order-1 {
+  order: 1;
+  /*animation: flexanimation 1s ease-out;*/
+}
+
+.user-order-2 {
+  order: 2;
+  /*animation: flexanimation 1s ease-out;*/
+}
+
+.user-order-3 {
+  order: 3;
+  /*animation: flexanimation 1s ease-out;*/
+}
+
+.user-order-4 {
+  order: 4;
+  /*animation: flexanimation 1s ease-out;*/
+}
+
+@keyframes flexanimation {
+  100% {
+    order: inherit;
+  }
+}
+
 .leader-text {
   text-align: center;
   width: 60%;
@@ -65,6 +102,10 @@
 .tumb {
   max-width: 40px;
   border-radius: 50%;
+}
+
+.crypto-glow {
+  box-shadow: 0 0 10px black;
 }
 
 .active-user {
@@ -142,22 +183,20 @@
   align-content: center;
 }
 
-.attack-card {
-}
-
 .card-field {
   /*width: fit-content;*/
-}
-
-.cart-text {
-  border: solid #F2F7F9 2px;
-  border-radius: 5px;
 }
 
 .leader-board {
   justify-self: center;
   grid-area: start;
   /*animation: pulse 5s infinite;*/
+}
+
+.atk-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: -45px;
 }
 
 .selected {

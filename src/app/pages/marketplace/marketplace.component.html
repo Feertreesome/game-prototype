@@ -1,0 +1,27 @@
+<div class="vh-100">
+  <div class="wrapper">
+    <div class="header w-100 d-flex flex-row justify-content-between">
+      <div class="d-flex text-container mx-2">
+        <div class="text mx-1">TEXT</div>
+        <div class="text mx-1">TEXT</div>
+      </div>
+      <button class="btn btn-primary btn-sm mx-2">BUTTON</button>
+    </div>
+    <div class="scroll-area">
+      <table class="table table-hover">
+        <tbody>
+        <tr class="row" *ngFor="let user of users">
+          <th class="col-1" scope="row">
+            <img style="width: 50px; height: 50px" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="" />
+          </th>
+          <td class="col-9" >
+            <div>{{ user.userName }}</div>
+            <div>{{ user.info }}</div>
+          </td>
+          <td class="col-2"><button class="btn btn-primary btn-sm">BUTTON</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

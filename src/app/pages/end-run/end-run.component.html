@@ -1,0 +1,28 @@
+<div class="vh-100">
+  <div class="wrapper">
+    <div class="users-grid">
+      <div class="container table-direction">
+        <div class="py-2" *ngFor="let participant of participants; index as i">
+          <div class="row w-100 user-card">
+            <div class="col-4">
+              <img
+                class="d-flex mx-1 col p-0 avatar"
+                style="max-width: 50px"
+                src="/assets/img/cypto-tumb/crypto-2.jpg"
+                alt="Card"
+              />
+              <div class="d-flex bage">sum{{ i }}</div>
+            </div>
+            <div class="col p-0">
+              <div class="cost">Some message when round end</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="winner-grid">
+      <app-won-card *ngIf="checkWon"></app-won-card>
+      <app-lost-card *ngIf="!checkWon"></app-lost-card>
+    </div>
+  </div>
+</div>

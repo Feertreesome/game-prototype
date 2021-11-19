@@ -30,8 +30,14 @@
     </div>
 
     <div class="leader-board" [ngClass]="{ selected: selectedParticipant }">
-      <div class="container">
-        <div style="padding-bottom: 3px" *ngFor="let participant of participants">
+      <div class="container table-direction">
+        <!--        [@boardState]="{ value: visible, params: { params: { min_height: 2 } } }"-->
+        <div
+          style="padding-bottom: 3px"
+          class="user-order-{{ userOrder[i] }}"
+          *ngFor="let participant of participants; index as i"
+          id="{{ i }}"
+        >
           <div
             class="row"
             [ngClass]="{ 'my-user': participant.userName === 'My User', 'active-user': selectedParticipant }"
@@ -44,11 +50,11 @@
                 src="/assets/img/cypto-tumb/crypto-2.jpg"
                 alt="Card"
               />
-              <div class="d-flex bage">sum</div>
+              <div class="d-flex bage">sum{{ i }}</div>
             </div>
-            <div class="col p-0" *ngFor="let cr of participant.crypto; index as i">
+            <div class="col p-0" *ngFor="let cr of participant.crypto; index as in">
               <img
-                class="d-flex tumb gup-{{ i }}"
+                class="d-flex tumb gup-{{ in }}"
                 [ngClass]="{ 'active-tumb': selectedParticipant, 'mx-1': !selectedParticipant }"
                 src="/assets/img/cypto-tumb/crypto-1.jpeg"
                 alt="Card"
@@ -78,47 +84,22 @@
           </div>
           <div class="col p-0" *ngFor="let cr of attackedParticipant.crypto; index as i">
             <div class="w-100">
-              <img class="d-flex tumb m-auto" src="/assets/img/cypto-tumb/crypto-1.jpeg" alt="Card" />
+              <div
+                class="m-auto d-flex tumb"
+                [ngClass]="{ 'crypto-glow': attackSelectedCard }"
+                (click)="applyEffect(attackSelectedCard)"
+              >
+                <img class="d-flex tumb m-auto" src="/assets/img/cypto-tumb/crypto-1.jpeg" alt="Card" />
+              </div>
             </div>
             <div class="cost" [ngClass]="{ minus: cr.crypto.includes('-') }">
               {{ cr.crypto }}
             </div>
           </div>
         </div>
-        <div class="row w-100">
-          <div class="col">
-            <div class="container card-field">
-              <div class="row">
-                <div class="attack-card">
-                  <img src="/assets/img/attack-card/card-img/Shape.svg" alt="" />
-                </div>
-              </div>
-              <div class="row cart-text">
-<!--                <div class="cart-text">-->
-                  <span class="col">Camouflag</span>
-                  <img class="col" src="/assets/img/attack-card/icons/vector.svg" alt="" />
-                  <img class="col" src="/assets/img/attack-card/icons/vector2.svg" alt="" />
-<!--                </div>-->
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="container">
-              <div class="row">
-                <div class="attack-card">
-                  <img src="/assets/img/attack-card/card-img/Shape.svg" alt="" />
-                </div>
-              </div>
-              <div class="row">
-                <div>
-                  <span class="">Camouflag</span>
-                  <img src="/assets/img/attack-card/icons/vector.svg" alt="" />
-                  <img src="/assets/img/attack-card/icons/vector2.svg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="atk-wrapper">
+          <app-attack-card *ngIf="!userIsMe" (selectedCard)="selectedCard($event)"></app-attack-card>
+          <app-defence-card *ngIf="userIsMe" (selectedCard)="selectedCard($event)"></app-defence-card>
         </div>
       </div>
     </div>
