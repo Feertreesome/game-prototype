@@ -1,6 +1,5 @@
 :host > .main-container {
-  /*position: relative;*/
-  background-color: #f5deb3;
+  background-color: #f2f7f9;
   overflow-y: hidden;
   overflow-x: hidden;
 }

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MiningComponent implements OnInit {
   public grades = [1, 1, 1, 1, 1, 1];
+  public grades2 = [1, 1, 1, 1, 1];
   public load = true;
 
   constructor() {}

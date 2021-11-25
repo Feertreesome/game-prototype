@@ -27,3 +27,9 @@
   height: 60px;
   border-radius: 50%;
 }
+
+.new-button {
+  background-color: #32c5ff;
+  border-color: #32c5ff;
+  color: #fff;
+}

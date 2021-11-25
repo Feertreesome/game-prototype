@@ -4,7 +4,6 @@ h2 {
 }
 
 .scroll-container {
-
 }
 
 :host {
@@ -21,8 +20,8 @@ h2 {
   /*overflow: hidden;*/
   display: grid;
   grid-template-areas:
-  'title1 title1 title2 title2'
-  'active active ended ended';
+    'title1 title1 title2 title2'
+    'active active ended ended';
   /*grid-template-rows: repeat(2, 1fr);*/
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
@@ -45,6 +44,10 @@ h2 {
   grid-area: title2;
 }
 
+.card-body {
+  background-color: #ddeaf3;
+}
+
 .active {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -62,13 +65,23 @@ h2 {
   /*overflow-y: scroll;*/
 }
 
-.investment-gradient {
-  /* fallback for old browsers */
-  background: #cba123;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));
+.card-title {
+  border-radius: 3px;
+  background-color: #bfd4e4;
 }
+
+.card-text {
+  border-radius: 3px;
+  background-color: #bfd4e4;
+}
+
+/*.investment-gradient {*/
+/*  !* fallback for old browsers *!*/
+/*  background: #cba123;*/
+
+/*  !* Chrome 10-25, Safari 5.1-6 *!*/
+/*  background: -webkit-linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));*/
+
+/*  !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+/*  background: linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));*/
+/*}*/

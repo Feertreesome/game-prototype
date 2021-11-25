@@ -10,6 +10,11 @@
   background: linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));
 }
 
+.new-class {
+  border-color: #146c43;
+  box-shadow: 0 0 10px #157347;
+}
+
 .wrapper {
   overflow-y: scroll;
   overflow-x: hidden;

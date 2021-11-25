@@ -1,7 +1,6 @@
 .wrapper {
   display: grid;
-  grid-template-areas:
-    'users users winner winner winner .';
+  grid-template-areas: 'users users winner winner winner .';
   grid-template-columns: repeat(6, 1fr);
   gap: 10px;
   justify-items: center;
@@ -12,6 +11,10 @@
   align-self: center;
   justify-self: center;
   grid-area: users;
+}
+
+.won {
+  border: 3px solid #4e00ce;
 }
 
 .winner-grid {
@@ -30,7 +33,7 @@
 
 .bage {
   text-align: center;
-  background-color: #c4c5f0;
+  background-color: #ddeaf3;
   padding-left: 9px;
   padding-right: 9px;
   margin-top: -20px;
@@ -44,3 +47,8 @@
   transition: all 3s;
 }
 
+.message {
+  font-size: 10px;
+  background-color: #f2f7f9;
+  border-radius: 3px;
+}

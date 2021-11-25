@@ -31,8 +31,28 @@
   height: 30px;
 }
 
+.academy-button {
+  color: #ffffff;
+  background-color: #32c5ff;
+  border-color: #32c5ff;
+}
+
 .text {
-  background-color: #597393;
+  color: #ffffff;
+  padding-top: 3px;
+  background-color: #bfd4e4;
   border-radius: 3px;
   width: 5rem;
+}
+
+.user-text {
+  background-color: #bfd4e4;
+  border-radius: 3px;
+  width: 6rem;
+}
+
+.info-text {
+  background-color: #ddeaf3;
+  border-radius: 3px;
+  width: 4rem;
 }

@@ -1,30 +1,70 @@
 <div class="vh-100">
   <div class="wrapper">
-    <div class="header w-100">
-      <div class="banxter d-flex flex-row">
-        <div class="mx-2">Banxter</div>
-        <div class="grade d-flex flex-row mx-2" *ngFor="let grade of grades">
-          Grades
-          <button class="info mx-2">i</button>
+    <div class="header w-100 py-2">
+      <div class="d-flex flex-row justify-content-between" style="margin-top: 10px">
+        <div class="d-flex flex-column">
+          <div class="banxter d-flex flex-row">
+            <div class="mx-2">Banxter</div>
+            <div class="grade d-flex flex-row mx-2" *ngFor="let grade of grades">
+              Grades
+              <button class="info mx-2">i</button>
+            </div>
+          </div>
+          <div class="device d-flex flex-row">
+            <div class="mining-device w-100 h-100 m-2" *ngFor="let grade of grades2">
+              <div class="dev">VIDEOCARDS</div>
+              <div class="text">DEFAULT</div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="device d-flex flex-row">
-        <div class="mining-device w-100 h-100 m-2" *ngFor="let grade of grades">
-          <div class="dev">VIDEOCARDS</div>
-          <div class="text">DEFAULT</div>
+        <div class="d-flex" style="margin-right: 10px">
+          <div class="d-flex flex-column" style="align-items: center">
+            <img
+              class="d-flex"
+              width="40px"
+              height="40px"
+              style="border-radius: 3px"
+              src="/assets/img/cypto-tumb/crypto-2.jpg"
+              alt=""
+            />
+            <div class="d-flex" style="font-size: 14px">Middle</div>
+            <div class="d-flex" style="font-size: 12px; font-weight: 700">ASIC</div>
+          </div>
         </div>
       </div>
     </div>
     <div class="mining w-100">
       <div class="token d-flex flex-column">
-        <div class="mining-text my-2" style="width: 10rem">some text</div>
-        <div class="mining-text my-2" style="width: 15rem">some text</div>
-        <div class="mining-text my-2" style="width: 15rem">some text</div>
-        <div class="mining-text my-2" style="width: 13rem">some text</div>
-        <button *ngIf="!load" class="collect my-2 btn btn-primary">Collect tokens</button>
-        <button *ngIf="load" class="collect my-2 btn btn-secondary">Collect tokens in 4h 34m</button>
+        <div class="mining-text my-2" style="width: 10rem; background-color: #bfd4e4">some text</div>
+        <div class="mining-text my-2" style="width: 15rem; background-color: #ddeaf3">some text</div>
+        <div class="mining-text my-2" style="width: 15rem; background-color: #ddeaf3">some text</div>
+        <div class="mining-text my-2" style="width: 13rem; background-color: #ddeaf3">some text</div>
+        <button class="collect my-2 btn">Collect tokens</button>
+        <!--        <button *ngIf="!load" class="collect my-2 btn btn-primary">Collect tokens</button>-->
+        <!--        <button *ngIf="load" class="collect my-2 btn btn-secondary">Collect tokens in 4h 34m</button>-->
       </div>
-<!--      <div class="time">hello</div>-->
+      <div class="time d-flex">
+        <div class="d-flex">
+          <circle-progress
+            style="text-align: center"
+            [percent]="85"
+            [radius]="20"
+            [backgroundPadding]="7"
+            [space]="-2"
+            [outerStrokeWidth]="2"
+            [outerStrokeColor]="'#808080'"
+            [innerStrokeColor]="'#e7e8ea'"
+            [innerStrokeWidth]="2"
+            [title]="['5 days', '4 hours', '32 mins']"
+            [titleFontSize]="'4'"
+            [subtitleFontSize]="'4'"
+            [animateTitle]="false"
+            [animationDuration]="1000"
+            [showUnits]="false"
+            [clockwise]="false"
+          ></circle-progress>
+        </div>
+      </div>
     </div>
   </div>
 </div>

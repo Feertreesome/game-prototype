@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,11 +26,18 @@ export class GarageComponent implements OnInit {
   ];
   public gridRowsCount = 'repeat(1, 1fr)';
 
-  constructor(private rout: Router) {}
+  constructor(private rout: Router, private render: Renderer2) {}
 
   ngOnInit(): void {
     // repeat(2, 1fr)
     this.gridRowsCount = `repeat(${Math.ceil(this.testedElements.length / 2 + 1)}, 1fr)`;
+  }
+
+  newClick(event: any): void {
+    // console.log(event, 'EVENT');
+    // const b = event.target as ElementRef;
+    // this.render.addClass(event.target, 'new-class');
+    // console.log(event.target.className, 'targ2');
   }
 
   startRun() {

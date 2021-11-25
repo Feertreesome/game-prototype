@@ -41,3 +41,7 @@
   height: 40px;
   border-radius: 50%;
 }
+
+.won {
+  border: 5px solid #4e00ce;
+}

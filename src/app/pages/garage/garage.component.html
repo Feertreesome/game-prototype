@@ -33,16 +33,22 @@
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div *ngIf="testedElements" class="wrapper" [ngStyle]="{ 'grid-template-rows': this.gridRowsCount }">
         <div *ngFor="let element of testedElements; index as i; let odd = odd">
-          <div [ngClass]="{ left: !odd, right: odd }" >
+          <div [ngClass]="{ left: !odd, right: odd }">
             <div class="d-flex">
               <img class="d-flex mx-2" style="width: 50px" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="Card" />
               <p class="d-flex mx-2 crypto-name mr-5">{{ element }}</p>
 
-              <input type="radio" class="btn-check" name="options-outlined" id="buy" autocomplete="off" />
-              <label class="d-flex mx-2 btn btn-success" style="align-self: center" for="buy">BUY</label>
+              <input type="radio" class="btn-check" name="options-outlined" id="buy-{{ i }}" autocomplete="off" />
+              <label
+                class="d-flex mx-2 btn btn-success"
+                style="align-self: center"
+                (click)="newClick($event)"
+                for="buy-{{ i }}"
+                >BUY</label
+              >
 
-              <input type="radio" class="btn-check" name="options-outlined" id="sell" autocomplete="off" />
-              <label class="d-flex mx-2 btn btn-danger" style="align-self: center" for="sell">SELL</label>
+              <input type="radio" class="btn-check" name="options-outlined" id="sell-{{ i }}" autocomplete="off" />
+              <label class="d-flex mx-2 btn btn-danger" style="align-self: center" for="sell-{{ i }}">SELL</label>
             </div>
           </div>
         </div>
@@ -53,6 +59,6 @@
     </div>
   </div>
   <div class="footer fixed-bottom py-3 d-flex justify-content-center">
-    <button class="btn-lg btn-primary" (click)="startRun()">START</button>
+    <!--    <button class="btn-lg btn-primary" (click)="startRun()">START</button>-->
   </div>
 </div>

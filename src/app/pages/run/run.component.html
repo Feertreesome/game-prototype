@@ -68,7 +68,18 @@
       </div>
     </div>
 
-    <div class="graph" *ngIf="!selectedParticipant"></div>
+    <div class="graph" *ngIf="!selectedParticipant && showChart">
+      <canvas
+        baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+        [colors]="lineChartColors"
+      >
+      </canvas>
+    </div>
 
     <div class="attack-field graph" *ngIf="selectedParticipant">
       <div class="attack-select container">

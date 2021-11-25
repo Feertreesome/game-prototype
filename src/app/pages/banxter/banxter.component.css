@@ -19,7 +19,8 @@
 }
 
 .banxter {
-  background-color: #21a300;
+  background-color: #f2f7f9;
+  border-radius: 5px;
   grid-area: banxter;
   display: flex;
   flex-direction: column;
@@ -29,10 +30,15 @@
 }
 
 .cards {
-  background-color: #a3002a;
+  /*background-color: #a3002a;*/
   grid-area: cards;
   display: flex;
   flex-direction: row;
+}
+
+.banxter-button {
+  background-color: #32c5ff;
+  border-color: #32c5ff;
 }
 
 .avatar {
