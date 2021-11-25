@@ -41,7 +41,7 @@ export class AngarComponent implements OnInit {
       yAxes: [
         {
           type: 'linear',
-          ticks: { display: false, maxTicksLimit: 7 },
+          ticks: { beginAtZero: true, display: false, min: -20, max: 120, maxTicksLimit: 120 },
           stacked: false,
           gridLines: {
             display: false,
@@ -69,9 +69,9 @@ export class AngarComponent implements OnInit {
     borderColor: color.borderColor,
     borderWidth: 2,
     pointBackgroundColor: 'transparent',
-    pointRadius: 4,
-    // pointHitRadius: 8,
-    // pointBorderWidth: 10,
+    pointRadius: 2,
+    pointHitRadius: 2,
+    pointBorderWidth: 0,
     pointBorderColor: 'transparent',
     pointHoverBackgroundColor: 'transparent',
     pointHoverBorderColor: 'transparent',
@@ -89,6 +89,8 @@ export class AngarComponent implements OnInit {
 
   ngOnInit(): void {
     this.img.src = '/assets/img/avatart/avatar.png';
+    this.img.height = 24;
+    this.img.width = 24;
 
     this.img.onload = () => {
       this.showChart = true;

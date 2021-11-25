@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.router.navigateByUrl('/angar');
+    this.router.navigateByUrl('/profile');
   }
 
   title = 'game-prototype';

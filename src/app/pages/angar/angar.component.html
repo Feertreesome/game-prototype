@@ -28,9 +28,9 @@
       </div>
     </div>
     <div class="run p-2 w-100">
-      <div class="active-run w-100 h-100">
-        <div class="d-flex">Ongoing run</div>
-        <div class="d-flex">
+      <div class="active-run d-flex flex-row w-100 h-100">
+        <div class="d-flex flex-column">
+          <div class="d-flex">Ongoing run</div>
           <canvas
             baseChart
             [datasets]="barChartData"
@@ -41,6 +41,26 @@
             [colors]="lineChartColors"
           >
           </canvas>
+        </div>
+        <div class="d-flex" style="align-items: center">
+          <circle-progress
+            style="text-align: center"
+            [percent]="85"
+            [radius]="20"
+            [backgroundPadding]="7"
+            [space]="-2"
+            [outerStrokeWidth]="2"
+            [outerStrokeColor]="'#DDEAF3'"
+            [innerStrokeColor]="'#BFD4E4'"
+            [innerStrokeWidth]="2"
+            [title]="['12:34', 'left']"
+            [titleFontSize]="'4'"
+            [subtitleFontSize]="'4'"
+            [animateTitle]="false"
+            [animationDuration]="1000"
+            [showUnits]="false"
+            [clockwise]="false"
+          ></circle-progress>
         </div>
       </div>
     </div>

@@ -50,7 +50,7 @@
 .avatar-text {
   text-align: center;
   margin: 5px;
-  background-color: white;
+  background-color: #bfd4e4;
   border-radius: 4px;
 }
 
@@ -67,4 +67,25 @@
 
 .token {
   width: 60%;
+}
+
+.cards-card {
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+}
+
+.card-text {
+  width: 60%;
+  border-radius: 3px;
+  background-color: #ddeaf3;
+}
+
+.card {
+  border: 0px;
+  background-color: #bfd4e4;
+}
+
+.fill-container {
+  flex: 1 0 auto;
 }
