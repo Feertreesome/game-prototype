@@ -12,7 +12,7 @@ export class AttackCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.attacksCards = ['card1', 'card2', 'card3'];
+    this.attacksCards = ['card1', 'card2'];
   }
 
   checkGlow(event: any) {

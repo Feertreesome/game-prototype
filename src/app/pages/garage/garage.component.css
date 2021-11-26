@@ -1,18 +1,31 @@
 :host {
   height: 100vh;
-/*overflow: hidden;*/
-  background: #cba123;
+  /*overflow: hidden;*/
 
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));
+  /*!* Chrome 10-25, Safari 5.1-6 *!*/
+  /*background: -webkit-linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));*/
 
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));
+  /*!* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+  /*background: linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));*/
+}
+
+.tab-instruments {
+  background-color: #f2f7f9;
+}
+
+.tab-cards {
+  background-color: #bfd4e4;
 }
 
 .new-class {
   border-color: #146c43;
-  box-shadow: 0 0 10px #157347;
+  box-shadow: 0 0 10px #146c43;
+}
+
+.buy {
+  color: #ffffff;
+  border-color: #21a300;
+  background-color: #21a300;
 }
 
 .wrapper {
@@ -41,8 +54,10 @@
 }
 
 .nav-tabs .nav-link.active {
-  color: #0072ff;
-  text-decoration: underline;
+  color: #597393;
+  text-decoration: #0010a3 underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 2px;
 }
 
 .nav-tabs {
@@ -67,8 +82,34 @@
 /*  grid-area: footer;*/
 /*}*/
 
+.select-button {
+  align-self: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: #ddeaf3;
+  border-radius: 50%;
+}
+
 .crypto-name {
+  font-size: 13px;
+  color: #597393;
   text-align: center;
   align-self: center;
   margin: 0;
+}
+
+.active-selected {
+  background-color: #32c5ff;
+  border: 1px solid #0998ffb2;
+}
+
+.disabled-selected {
+  background-color: #818b92;
+}
+
+.garage-btn {
+  width: 12rem;
+  color: #ffffff;
+  background-color: #32c5ff;
+  border: 1px solid #0998ffb2;
 }

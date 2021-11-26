@@ -70,6 +70,7 @@ export class RunComponent implements OnInit {
   public userOrder = [0, 1, 2, 3, 4];
   public visible = 'show';
   public chart: any = null;
+  public roundTime = 0;
   public img = new Image();
 
   public barChartOptions: ChartOptions = {
@@ -100,7 +101,7 @@ export class RunComponent implements OnInit {
       yAxes: [
         {
           type: 'linear',
-          ticks: { display: false, maxTicksLimit: 7 },
+          ticks: { display: false, beginAtZero: true, min: 0, max: 120, maxTicksLimit: 120 },
           stacked: false,
           gridLines: {
             display: true,
@@ -144,6 +145,17 @@ export class RunComponent implements OnInit {
   public showChart = false;
   // public date: string;
   @ViewChild('canvas') canvas: ElementRef | undefined;
+  public nowTime = 0;
+  public percent = 0;
+  public percent2 = 0;
+  public percent3 = 0;
+  public allTimeCount = '15:00';
+  public time = '5:00';
+  public time2 = '5:00';
+  public time3 = '5:00';
+  public iterate = 1;
+  public allTime = 0;
+  public activeParticipant: any;
 
   constructor() {}
 
@@ -152,28 +164,66 @@ export class RunComponent implements OnInit {
 
     this.img.onload = () => {
       this.showChart = true;
-      // setInterval(() => {
-      //   this.barChartData.forEach((line, index) => {
-      //     line.data?.push(random(0, 100));
-      //     line.pointStyle = ['' as any, ...(line.pointStyle as any)];
-      //     // const b = line.pointStyle as any;
-      //     // b?.unshift('1');
-      //
-      //     console.log();
-      //   });
-      //   this.barChartLabels.push('1');
-      // }, 3000);
+      setInterval(() => {
+        this.barChartData.forEach((line, index) => {
+          line.data?.push(random(0, 100));
+          line.pointStyle = ['' as any, ...(line.pointStyle as any)];
+        });
+        this.barChartLabels.push('1');
+      }, 10000);
     };
+
+    // 5 * 60
+    this.allTime = 15 * 60 * 1000;
+    this.roundTime = 5 * 60 * 1000;
+    const onePercent = (5 * 60 * 1000) / 100;
+
+    setInterval(() => {
+      this.nowTime += 1000;
+      if (this.iterate === 1) {
+        this.percent = this.nowTime / onePercent;
+      } else if (this.iterate === 2) {
+        this.percent2 = this.nowTime / onePercent;
+      } else {
+        this.percent3 = this.nowTime / onePercent;
+      }
+      this.roundTime -= 1000;
+      if (this.roundTime === 0) {
+        this.iterate++;
+        this.nowTime = 0;
+        this.roundTime = 5 * 60 * 1000;
+      }
+
+      this.allTime -= 1000;
+
+      this.allTimeCount = this.millisToMinutesAndSeconds(this.allTime);
+      this.time = this.millisToMinutesAndSeconds(this.roundTime);
+    }, 1000);
+  }
+
+  millisToMinutesAndSeconds(millis: number): string {
+    const minutes = Math.floor(millis / 60000);
+    const seconds = ((millis % 60000) / 1000).toFixed(0);
+    return minutes + ':' + ((seconds as any) < 10 ? '0' : '') + seconds;
   }
 
   selectUser(participant: any): void {
+    this.activeParticipant = participant;
+    console.log(this.activeParticipant, 'this.activeParticipant');
+    console.log(participant, 'participantparticipant');
+
     this.attackedParticipant = participant;
-    this.selectedParticipant = !this.selectedParticipant;
+    this.selectedParticipant = true;
     this.userIsMe = this.isMe(participant);
   }
 
   isMe(participant: any) {
     return participant.userName === 'My User';
+  }
+
+  close() {
+    this.activeParticipant = null;
+    this.selectedParticipant = false;
   }
 
   selectedCard(event: any) {

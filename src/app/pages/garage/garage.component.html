@@ -1,4 +1,4 @@
-<div class="vh-100">
+<div class="vh-100" [ngClass]="{ 'tab-instruments': activeTab !== 'Cards', 'tab-cards': activeTab === 'Cards' }">
   <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button
@@ -10,6 +10,7 @@
         role="tab"
         aria-controls="home"
         aria-selected="true"
+        (click)="page('Instruments')"
       >
         Instruments
       </button>
@@ -24,6 +25,7 @@
         role="tab"
         aria-controls="profile"
         aria-selected="false"
+        (click)="page('Cards')"
       >
         Cards
       </button>
@@ -36,19 +38,26 @@
           <div [ngClass]="{ left: !odd, right: odd }">
             <div class="d-flex">
               <img class="d-flex mx-2" style="width: 50px" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="Card" />
-              <p class="d-flex mx-2 crypto-name mr-5">{{ element }}</p>
+              <p class="d-flex mx-2 crypto-name mr-5" style="width: 3rem">{{ element.crypto }}</p>
+
+              <p class="d-flex mx-2 crypto-name mr-5" style="width: 3rem">{{ element.price }}</p>
 
               <input type="radio" class="btn-check" name="options-outlined" id="buy-{{ i }}" autocomplete="off" />
-              <label
-                class="d-flex mx-2 btn btn-success"
-                style="align-self: center"
-                (click)="newClick($event)"
-                for="buy-{{ i }}"
+              <label class="d-flex mx-2 btn buy" style="align-self: center" (click)="newClick($event)" for="buy-{{ i }}"
                 >BUY</label
               >
 
               <input type="radio" class="btn-check" name="options-outlined" id="sell-{{ i }}" autocomplete="off" />
               <label class="d-flex mx-2 btn btn-danger" style="align-self: center" for="sell-{{ i }}">SELL</label>
+
+              <div
+                class="select-button d-flex"
+                [ngClass]="{
+                  'active-selected': selectedCrypto.includes(element.id),
+                  'disabled-selected': selectedCrypto.length >= 5 && !selectedCrypto.includes(element.id)
+                }"
+                (click)="selectDeal(element.id)"
+              ></div>
             </div>
           </div>
         </div>
@@ -59,6 +68,6 @@
     </div>
   </div>
   <div class="footer fixed-bottom py-3 d-flex justify-content-center">
-    <!--    <button class="btn-lg btn-primary" (click)="startRun()">START</button>-->
+    <button *ngIf="activeTab !== 'Cards'" class="btn-lg garage-btn" (click)="startRun()">START</button>
   </div>
 </div>

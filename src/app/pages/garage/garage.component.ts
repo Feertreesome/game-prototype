@@ -8,23 +8,18 @@ import { Router } from '@angular/router';
 })
 export class GarageComponent implements OnInit {
   public testedElements = [
-    'element1',
-    'element2',
-    'element3',
-    'element4',
-    'element5',
-    'element1',
-    'element2',
-    'element3',
-    'element4',
-    'element5',
-    'element1',
-    'element2',
-    'element3',
-    'element4',
-    'element5',
+    { crypto: 'Bitcoin', price: '-8.87%', id: 1 },
+    { crypto: 'UDS', price: '-6.87%', id: 2 },
+    { crypto: 'Bitcoin cash', price: '4.93%', id: 3 },
+    { crypto: 'Litecoin', price: '-6.87%', id: 4 },
+    { crypto: 'Cardano', price: '-7.34%', id: 5 },
+    { crypto: 'Dai', price: '-2.89%', id: 6 },
+    { crypto: 'Eos', price: '1.78%', id: 7 },
+    { crypto: 'Ripple', price: '2.56%', id: 8 },
   ];
   public gridRowsCount = 'repeat(1, 1fr)';
+  public selectedCrypto = [] as Array<number>;
+  public activeTab = '' as string;
 
   constructor(private rout: Router, private render: Renderer2) {}
 
@@ -40,7 +35,22 @@ export class GarageComponent implements OnInit {
     // console.log(event.target.className, 'targ2');
   }
 
-  startRun() {
+  page(page: string): void {
+    this.activeTab = page;
+  }
+
+  selectDeal(cryptoName: number): void {
+    if (this.selectedCrypto.length < 5 || this.selectedCrypto.includes(cryptoName)) {
+      if (this.selectedCrypto.includes(cryptoName)) {
+        const index = this.selectedCrypto.indexOf(cryptoName);
+        this.selectedCrypto.splice(index, 1);
+      } else {
+        this.selectedCrypto.push(cryptoName);
+      }
+    }
+  }
+
+  startRun(): void {
     this.rout.navigateByUrl('/run');
   }
 }
