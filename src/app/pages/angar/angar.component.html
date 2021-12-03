@@ -1,7 +1,7 @@
 <div class="vh-100">
   <div class="wrapper mx-2">
     <div class="banxter w-100">
-      <div class="card-wrap d-flex flex-column" *ngFor="let leftCard of leftCards; index as i">
+      <div class="card-wrap d-flex flex-column" *ngFor="let leftCard of leftCards; index as i" (click)="goToBanxter()">
         <img class="avatar" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="" />
         <div class="text my-1" style="width: 90%">Banxter {{ i + 1 }}</div>
         <div class="text my-1" style="width: 80%">Soft token: 345</div>
@@ -9,14 +9,14 @@
       </div>
     </div>
     <div class="middle w-100">
-      <div class="left-middle d-flex justify-content-center flex-column m-1">
+      <div class="left-middle d-flex justify-content-center flex-column m-1" (click)="goToBanxter()">
         <img class="big-avatar m-3" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="" />
         <div class="big-text m-2" style="width: 90%">Banxter</div>
         <div class="big-text m-2" style="width: 80%">Soft token: 345</div>
         <div class="big-mining m-2">collect mining in NOW</div>
       </div>
       <div class="right-middle d-flex flex-column-reverse m-1">
-        <div class="else-cards d-flex justify-content-center flex-column">
+        <div class="else-cards d-flex justify-content-center flex-column" (click)="goToCards()">
           <img class="avatar" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="" />
           <div class="text my-1" style="width: 70%">Cards</div>
           <div class="text my-1" style="width: 50%">some text</div>
@@ -67,12 +67,12 @@
     <div class="list d-flex flex-column w-100">
       <div class="w-100 hard my-3">Hard token: 5673</div>
       <button class="w-100 btn btn-primary">Collect mining</button>
-      <div class="w-100 side-card my-2 d-flex flex-column">
+      <div class="w-100 side-card my-2 d-flex flex-column" (click)="goToMarketplace()">
         <img class="side-avatar my-2" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="" />
         <div class="text my-2" style="width: 70%">Marketplace</div>
         <div class="text my-2" style="width: 50%">some text</div>
       </div>
-      <div class="w-100 side-card my-2 d-flex flex-column">
+      <div class="w-100 side-card my-2 d-flex flex-column" (click)="goToEducation()">
         <img class="side-avatar my-2" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="" />
         <div class="text my-2" style="width: 70%">Education</div>
         <div class="text my-2" style="width: 50%">some text</div>

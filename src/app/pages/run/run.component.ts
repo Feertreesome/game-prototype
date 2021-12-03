@@ -1,66 +1,54 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { gsap } from 'gsap';
 import { Color, Label } from 'ng2-charts';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { random } from 'lodash';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-run',
   templateUrl: './run.component.html',
   styleUrls: ['./run.component.css'],
-  animations: [
-    // trigger('boardState', [
-    //   state(
-    //     'show',
-    //     style({
-    //       opacity: '{{min_height}}',
-    //     }),
-    //     { params: { min_height: '0' } },
-    //   ),
-    //   state(
-    //     'hide',
-    //     style({
-    //       opacity: '{{min_height}}',
-    //     }),{ params: { min_height: '0' } },
-    //   ),
-    //   transition('show <=> hide', animate('600ms ease-out')),
-    //   // transition('hide => show', animate('1000ms ease-in')),
-    // ]),
-  ],
 })
 export class RunComponent implements OnInit {
-  public test = 4;
-  public usrOrder = {};
+  public timer: any;
+  public sumTimer: any;
   public participants = [
     {
       userName: 'My User',
       id: 1,
       leader: 1,
       crypto: [{ crypto: '-2.5' }, { crypto: '2.5' }, { crypto: '-5.5' }, { crypto: '6.5' }, { crypto: '-0.5' }],
+      sum: 0,
     },
     {
       userName: 'Username',
       id: 2,
       leader: 2,
       crypto: [{ crypto: '-2.5' }, { crypto: '2.5' }, { crypto: '-5.5' }, { crypto: '6.5' }, { crypto: '-0.5' }],
+      sum: 0,
     },
     {
       userName: 'Username',
       id: 3,
       leader: 3,
       crypto: [{ crypto: '-2.5' }, { crypto: '2.5' }, { crypto: '-5.5' }, { crypto: '6.5' }, { crypto: '-0.5' }],
+      sum: 0,
     },
     {
       userName: 'Username',
       id: 4,
       leader: 4,
       crypto: [{ crypto: '-2.5' }, { crypto: '2.5' }, { crypto: '-5.5' }, { crypto: '6.5' }, { crypto: '-0.5' }],
+      sum: 0,
     },
     {
       userName: 'Username',
       id: 5,
       leader: 5,
       crypto: [{ crypto: '-2.5' }, { crypto: '2.5' }, { crypto: '-5.5' }, { crypto: '6.5' }, { crypto: '-0.5' }],
+      sum: 0,
     },
   ];
   public selectedParticipant = false;
@@ -68,8 +56,6 @@ export class RunComponent implements OnInit {
   public attackSelectedCard: any;
   public userIsMe = false;
   public userOrder = [0, 1, 2, 3, 4];
-  public visible = 'show';
-  public chart: any = null;
   public roundTime = 0;
   public img = new Image();
 
@@ -77,14 +63,15 @@ export class RunComponent implements OnInit {
     tooltips: { enabled: false },
     legend: { display: false },
     responsive: true,
-    aspectRatio: 1,
+    maintainAspectRatio: false,
+    aspectRatio: 1.2,
     animation: {
       duration: 3000,
-      easing: 'linear',
+      easing: 'easeInQuad',
     },
     elements: { line: { tension: 0 } },
     scales: {
-      type: 'linear',
+      type: 'line',
       xAxes: [
         {
           id: 'y-axis-1',
@@ -128,15 +115,12 @@ export class RunComponent implements OnInit {
     backgroundColor: 'transparent',
     borderColor: color.borderColor,
     pointBackgroundColor: 'transparent',
-    // pointRadius: 8,
-    // pointHitRadius: 8,
-    // pointBorderWidth: 10,
     pointBorderColor: 'transparent',
     pointHoverBackgroundColor: 'transparent',
     pointHoverBorderColor: 'transparent',
   }));
   public barChartData: ChartDataSets[] = [
-    { data: [0], label: 'Series A', pointStyle: [this.img] },
+    { data: [0], label: 'My User', pointStyle: [this.img] },
     { data: [0], label: 'Series B', pointStyle: [this.img] },
     { data: [0], label: 'Series C', pointStyle: [this.img] },
     { data: [0], label: 'Series D', pointStyle: [this.img] },
@@ -144,6 +128,7 @@ export class RunComponent implements OnInit {
   ];
   public showChart = false;
   // public date: string;
+  @ViewChild('usersInRun') usersInRun: ElementRef | undefined;
   @ViewChild('canvas') canvas: ElementRef | undefined;
   public nowTime = 0;
   public percent = 0;
@@ -156,20 +141,63 @@ export class RunComponent implements OnInit {
   public iterate = 1;
   public allTime = 0;
   public activeParticipant: any;
+  public mySum = 0;
+  public end = false;
+  public animationArray: Array<any> | undefined;
+  public clHeight: any;
 
-  constructor() {}
+  constructor(private route: Router) {}
 
   ngOnInit(): void {
+    setTimeout(() => {
+      console.log();
+    });
     this.img.src = '/assets/img/avatart/avatar.png';
 
     this.img.onload = () => {
       this.showChart = true;
-      setInterval(() => {
+      this.sumTimer = setInterval(() => {
         this.barChartData.forEach((line, index) => {
+          const sum = random(0, 100);
+          this.participants[index].sum += sum;
           line.data?.push(random(0, 100));
           line.pointStyle = ['' as any, ...(line.pointStyle as any)];
         });
+
         this.barChartLabels.push('1');
+        this.animationArray = [...this.participants];
+
+        this.animationArray.sort((a, b) => {
+          return b.sum - a.sum;
+        });
+
+        this.participants.forEach((user, index) => {
+          const findCurrentUser = this.animationArray?.find((us) => {
+            return user.id === us.id;
+          });
+
+          const animationIndex = this.animationArray?.indexOf(findCurrentUser) as number;
+
+          console.log(this.usersInRun?.nativeElement.children[index].offsetTop, 'offsetTop');
+          console.log(this.usersInRun?.nativeElement.children[index].clientHeight, 'clientHeight');
+          const h1 = this.usersInRun?.nativeElement.children[1].offsetTop;
+          const h0 = this.usersInRun?.nativeElement.children[0].offsetTop;
+
+          const clientH = this.usersInRun?.nativeElement.children[index].clientHeight;
+          console.log(h1, 'H1');
+          console.log(h0, 'H0');
+          let sum = clientH + h1 - h0 - clientH;
+          const offset = user.userName === 'My User' ? -62 : -59;
+          if (index > animationIndex) {
+            const res = index - animationIndex;
+            gsap.to(`.user-order-${index}`, { y: -sum * res, duration: 1 });
+          } else if (index < animationIndex) {
+            const res = index - animationIndex;
+            gsap.to(`.user-order-${index}`, { y: -sum * res, duration: 1 });
+          } else {
+            gsap.to(`.user-order-${index}`, { y: 0, duration: 1 });
+          }
+        });
       }, 10000);
     };
 
@@ -178,7 +206,7 @@ export class RunComponent implements OnInit {
     this.roundTime = 5 * 60 * 1000;
     const onePercent = (5 * 60 * 1000) / 100;
 
-    setInterval(() => {
+    this.timer = setInterval(() => {
       this.nowTime += 1000;
       if (this.iterate === 1) {
         this.percent = this.nowTime / onePercent;
@@ -198,6 +226,25 @@ export class RunComponent implements OnInit {
 
       this.allTimeCount = this.millisToMinutesAndSeconds(this.allTime);
       this.time = this.millisToMinutesAndSeconds(this.roundTime);
+
+      if (this.allTime <= 0) {
+        clearInterval(this.sumTimer);
+        this.participants.map(async (user) => {
+          if (user.userName === 'My User' && !this.mySum) {
+            this.mySum = user.sum;
+          } else if (this.mySum < user.sum) {
+            clearInterval(this.timer);
+            this.end = true;
+            return;
+          }
+        });
+        clearInterval(this.timer);
+        if (this.end) {
+          this.route.navigate(['/end-run'], { queryParams: { won: false } });
+        } else {
+          this.route.navigate(['/end-run'], { queryParams: { won: true } });
+        }
+      }
     }, 1000);
   }
 
@@ -208,6 +255,8 @@ export class RunComponent implements OnInit {
   }
 
   selectUser(participant: any): void {
+    this.clHeight = this.usersInRun?.nativeElement.clientHeight;
+    console.log(this.usersInRun?.nativeElement.clientHeight, 'this.usersInRun?.nativeElement.clientHeight');
     this.activeParticipant = participant;
     console.log(this.activeParticipant, 'this.activeParticipant');
     console.log(participant, 'participantparticipant');

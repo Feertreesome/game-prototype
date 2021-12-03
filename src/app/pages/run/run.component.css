@@ -2,54 +2,15 @@
   height: 100vh;
 
   background: #f2f7f9;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  /*background: -webkit-linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));*/
-
-  /*!* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
-  /*background: linear-gradient(to right, rgba(203, 174, 32, 1), rgba(252, 43, 177, 1));*/
 }
 
 .table-direction {
   display: flex;
   flex-direction: column;
-  transition: all 3s;
-}
-
-.user-order-0 {
-  order: 0;
-  /*animation: flexanimation 1s ease-out;*/
-}
-
-.user-order-1 {
-  order: 1;
-  /*animation: flexanimation 1s ease-out;*/
-}
-
-.user-order-2 {
-  order: 2;
-  /*animation: flexanimation 1s ease-out;*/
-}
-
-.user-order-3 {
-  order: 3;
-  /*animation: flexanimation 1s ease-out;*/
-}
-
-.user-order-4 {
-  order: 4;
-  /*animation: flexanimation 1s ease-out;*/
-}
-
-@keyframes flexanimation {
-  100% {
-    order: inherit;
-  }
 }
 
 .leader-text {
-  text-align: center;
-  width: 60%;
+  text-align: start;
   margin: 10px 0px 10px 0px;
   background-color: #bfd4e4;
   border-radius: 6px;
@@ -164,19 +125,20 @@
 
 .wrapper {
   display: grid;
+  gap: 5px;
   grid-template-areas:
-    'header header load load'
-    'start start end end';
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+    'header header header load load load'
+    'start start start end end end';
+  grid-template-columns: repeat(6, 1fr);
   justify-items: center;
 }
 
 .attack {
+  justify-items: center;
+  gap: 5px;
   grid-template-areas:
     'header header header load load load'
     'start start end end end end';
-  grid-template-columns: repeat(6, 1fr);
 }
 
 .attack-field {
@@ -188,7 +150,7 @@
   background-color: #bfd4e4;
   border-radius: 60px;
   width: 90%;
-  height: 100%;
+  height: 90%;
 }
 
 .centered-attack {
@@ -197,34 +159,19 @@
   align-content: center;
 }
 
-.card-field {
-  /*width: fit-content;*/
-}
-
 .leader-board {
   justify-self: center;
   grid-area: start;
-  /*animation: pulse 5s infinite;*/
 }
 
 .atk-wrapper {
   display: flex;
   flex-direction: row-reverse;
-  margin-top: -45px;
+  margin-top: -65px;
 }
 
 .selected {
   justify-self: left;
-  /*animation: pulse 5s infinite;*/
-}
-
-@keyframes pulse {
-  0% {
-    justify-self: left;
-  }
-  100% {
-    justify-self: center;
-  }
 }
 
 .load {
@@ -235,8 +182,6 @@
 }
 
 .graph {
-  /*width: 100%;*/
-  /*height: 100%;*/
   justify-self: center;
   grid-area: end;
 }

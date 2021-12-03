@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-won',
   templateUrl: './end-run.component.html',
-  styleUrls: ['./end-run.component.css']
+  styleUrls: ['./end-run.component.css'],
 })
 export class EndRunComponent implements OnInit {
   public checkWon = false;
@@ -41,10 +42,9 @@ export class EndRunComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(private route: Router) {}
 
   ngOnInit(): void {
-
+    this.checkWon = this.route.url.includes('won=true');
   }
-
 }

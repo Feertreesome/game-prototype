@@ -1,18 +1,18 @@
 <div class="vh-100" style="background-color: #ffffff">
   <div class="wrapper">
     <div class="left-card w-100 menu-card">
-      <div class="card h-100 w-100 m-2 justify-content-center">
-        <div class="px-2 m-1 card-cont">CONTENT</div>
+      <div class="card h-100 w-100 m-2 justify-content-center" (click)="goToMiner()">
+        <div class="px-2 m-1 card-cont">Miner</div>
         <div class="px-2 m-1 card-cont">CONTENT</div>
       </div>
-      <div class="card h-100 w-100 m-2 justify-content-center">
-        <div class="px-2 m-1 card-cont">CONTENT</div>
+      <div class="card h-100 w-100 m-2 justify-content-center" (click)="goToEducation()">
+        <div class="px-2 m-1 card-cont">Education</div>
         <div class="px-2 m-1 card-cont">CONTENT</div>
       </div>
     </div>
     <div class="right-card w-100 menu-card">
-      <div class="card h-100 w-100 m-2 justify-content-center">
-        <div class="px-2 m-1 card-cont">CONTENT</div>
+      <div class="card h-100 w-100 m-2 justify-content-center" (click)="goToInvestments()">
+        <div class="px-2 m-1 card-cont">Investments Runs</div>
         <div class="px-2 m-1 card-cont">CONTENT</div>
       </div>
       <div class="card h-100 w-100 m-2 justify-content-center">
@@ -34,11 +34,11 @@
         <div class="w-100 balance m-1">Balance</div>
         <div class="token balance m-1">0.5 crypto token</div>
       </div>
-      <div class="card cards-card w-100 m-1" style="text-align: center">
+      <div class="card cards-card w-100 m-1" style="text-align: center" (click)="goToGarage()">
         <div class="card-text mb-1">Cards</div>
         <div class="card-text" style="width: 40%">Cards</div>
       </div>
-      <div class="card w-100 m-1" style="text-align: center; align-items: center">
+      <div class="card w-100 m-1" style="text-align: center; align-items: center" (click)="goToBanxter()">
         <div class="card-text m-3" style="width: 40%">Banxters</div>
       </div>
     </div>

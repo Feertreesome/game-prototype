@@ -1,34 +1,41 @@
 <section class="vh-100 gradient-custom">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-          <div class="card-body text-center">
-
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5 h-100">
+        <div class="card bg-dark text-white rounded-0 h-100">
+          <div class="card-body px-2 py-0 text-center">
             <div class="">
-
-              <h2 class="fw-bold text-uppercase">SIGN UP</h2>
-              <p class="text-white-50">Please enter your login and password!</p>
+              <h2 class="fw-bold text-uppercase m-auto">SIGN UP</h2>
+              <p class="text-white-50 m-auto">Please enter your login and password!</p>
               <form [formGroup]="emailForm">
-              <div class="form-outline form-white">
-                <input type="email" id="typeEmailX" formControlName="email" class="form-control form-control-lg" />
-                <label class="form-label" for="typeEmailX">Enter you Email</label>
-              </div>
+                <div class="form-outline form-white">
+                  <input type="email" id="typeEmailX" formControlName="email" class="form-control form-control-lg" />
+                  <label class="form-label m-auto" for="typeEmailX">Enter you Email</label>
+                </div>
 
-              <div class="form-outline form-white">
-                <input type="password" id="typePasswordX" formControlName="password" class="form-control form-control-lg" />
-                <label class="form-label" for="typePasswordX">Enter you Password</label>
-              </div>
+                <div class="form-outline form-white">
+                  <input
+                    type="password"
+                    id="typePasswordX"
+                    formControlName="password"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label m-auto" for="typePasswordX">Enter you Password</label>
 
+                </div>
 
-              <div class="form-outline form-white">
-                <input type="password" id="confirmPasswordX" formControlName="confirmPassword" class="form-control form-control-lg" />
-                <label class="form-label" for="confirmPasswordX">Confirm Password</label>
-              </div>
-                </form>
+                <div class="form-outline form-white">
+                  <input
+                    type="password"
+                    id="confirmPasswordX"
+                    formControlName="confirmPassword"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label m-auto" for="confirmPasswordX">Confirm Password</label>
+                </div>
+              </form>
 
-              <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign UP</button>
-
+              <button class="btn btn-outline-light btn-lg px-5" (click)="createAccount()" type="submit">Sign UP</button>
             </div>
           </div>
         </div>
@@ -36,4 +43,3 @@
     </div>
   </div>
 </section>
-
