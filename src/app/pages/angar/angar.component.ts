@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { random } from 'lodash';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-angar',
@@ -85,7 +86,7 @@ export class AngarComponent implements OnInit {
   ];
   public showChart = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.img.src = '/assets/img/avatart/avatar.png';
@@ -102,5 +103,21 @@ export class AngarComponent implements OnInit {
         this.barChartLabels.push('1');
       }, 10000);
     };
+  }
+
+  goToCards(): void {
+    this.router.navigateByUrl('/garage');
+  }
+
+  goToBanxter(): void {
+    this.router.navigateByUrl('/banxter');
+  }
+
+  goToMarketplace(): void {
+    this.router.navigateByUrl('/marketplace');
+  }
+
+  goToEducation(): void {
+    this.router.navigateByUrl('/education');
   }
 }

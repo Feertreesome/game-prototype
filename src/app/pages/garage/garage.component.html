@@ -1,4 +1,8 @@
-<div class="vh-100" [ngClass]="{ 'tab-instruments': activeTab !== 'Cards', 'tab-cards': activeTab === 'Cards' }">
+<div
+  class="vh-100"
+  style="background-color: #f2f7f9"
+  [ngClass]="{ 'tab-instruments': activeTab !== 'Cards', 'tab-cards': activeTab === 'Cards' }"
+>
   <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button
@@ -31,27 +35,36 @@
       </button>
     </li>
   </ul>
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  <div class="tab-content w-100" id="myTabContent">
+    <div class="tab-pane fade show active w-100" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div *ngIf="testedElements" class="wrapper" [ngStyle]="{ 'grid-template-rows': this.gridRowsCount }">
-        <div *ngFor="let element of testedElements; index as i; let odd = odd">
+        <div *ngFor="let element of testedElements; index as i; let odd = odd" class="d-flex w-100 max-test">
           <div [ngClass]="{ left: !odd, right: odd }">
-            <div class="d-flex">
-              <img class="d-flex mx-2" style="width: 50px" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="Card" />
-              <p class="d-flex mx-2 crypto-name mr-5" style="width: 3rem">{{ element.crypto }}</p>
+            <div class="d-flex  row w-100 m-0">
+              <div class="d-flex col-2 p-0">
+                <img style="width: 50px" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="Card" />
+              </div>
+              <p class="d-flex crypto-name col-2 p-0">{{ element.crypto }}</p>
 
-              <p class="d-flex mx-2 crypto-name mr-5" style="width: 3rem">{{ element.price }}</p>
+              <p class="d-flex crypto-name col-2 p-0">{{ element.price }}</p>
 
-              <input type="radio" class="btn-check" name="options-outlined" id="buy-{{ i }}" autocomplete="off" />
-              <label class="d-flex mx-2 btn buy" style="align-self: center" (click)="newClick($event)" for="buy-{{ i }}"
-                >BUY</label
-              >
+              <div class="d-flex col-2 p-0">
+                <input type="radio" class="btn-check" name="options-outlined" id="buy-{{ i }}" autocomplete="off" />
+                <label
+                  class="d-flex btn buy btn-sm"
+                  style="align-self: center"
+                  (click)="newClick($event)"
+                  for="buy-{{ i }}"
+                  >BUY</label
+                >
+              </div>
 
-              <input type="radio" class="btn-check" name="options-outlined" id="sell-{{ i }}" autocomplete="off" />
-              <label class="d-flex mx-2 btn btn-danger" style="align-self: center" for="sell-{{ i }}">SELL</label>
+              <div class="d-flex col-2 p-0">
+                <input type="radio" class="btn-check" name="options-outlined" id="sell-{{ i }}" autocomplete="off" />
+                <label class="d-flex btn-sm btn-danger" style="align-self: center" for="sell-{{ i }}">SELL</label>
+              </div>
 
-              <div
-                class="select-button d-flex"
+              <div class="select-button d-flex col-2 p-0"
                 [ngClass]="{
                   'active-selected': selectedCrypto.includes(element.id),
                   'disabled-selected': selectedCrypto.length >= 5 && !selectedCrypto.includes(element.id)
@@ -67,7 +80,7 @@
       <app-cards></app-cards>
     </div>
   </div>
-  <div class="footer fixed-bottom py-3 d-flex justify-content-center">
+  <div class="footer fixed-bottom py-1 d-flex justify-content-center p-0">
     <button *ngIf="activeTab !== 'Cards'" class="btn-lg garage-btn" (click)="startRun()">START</button>
   </div>
 </div>

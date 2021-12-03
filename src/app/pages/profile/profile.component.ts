@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { random } from 'lodash';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -83,7 +84,7 @@ export class ProfileComponent implements OnInit {
   ];
   public showChart = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.img.src = '/assets/img/avatart/avatar.png';
@@ -100,5 +101,25 @@ export class ProfileComponent implements OnInit {
         this.barChartLabels.push('1');
       }, 10000);
     };
+  }
+
+  goToMiner(): void {
+    this.router.navigateByUrl('/mining');
+  }
+
+  goToEducation(): void {
+    this.router.navigateByUrl('/academy');
+  }
+
+  goToInvestments(): void {
+    this.router.navigateByUrl('/investment-runs');
+  }
+
+  goToGarage(): void {
+    this.router.navigateByUrl('/garage');
+  }
+
+  goToBanxter(): void {
+    this.router.navigateByUrl('/banxter');
   }
 }
