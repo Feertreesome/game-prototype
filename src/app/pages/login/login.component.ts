@@ -37,11 +37,13 @@ export class LoginComponent implements OnInit {
     this.error = '';
     if (this.email.value === this.testEmail && this.password.value === this.testPassword) {
       try {
-        await this.authService.login(this.email.value, this.password.value);
-        this.router.navigateByUrl('/investment-runs');
+        // await this.authService.login(this.email.value, this.password.value);
+        this.router.navigateByUrl('/profile');
       } catch (e) {
         this.error = 'Invalid email or password';
       }
+    } else {
+      this.error = 'Invalid email or password';
     }
   }
 }

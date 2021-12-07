@@ -122,3 +122,10 @@
   background-color: #32c5ff;
   border: 1px solid #0998ffb2;
 }
+
+.disable-btn {
+  width: 12rem;
+  color: #ffffff;
+  background-color: #8a8a8a;
+  border: 1px solid #363636;
+}

@@ -1,5 +1,6 @@
 <div class="wrapper vh-100 investment-gradient">
-  <div class="active-title">
+  <div class="active-title d-flex flex-row w-100 justify-content-around">
+    <button class="btn btn-primary" (click)="goToProfile()">Profile</button>
     <h2>ACTIVE ROOMS</h2>
   </div>
   <div class="ended-title">
@@ -12,7 +13,7 @@
           <div class="col-sm-5">
             <img class="card-img" src="/assets/img/cypto-tumb/crypto-1.jpeg" alt="Suresh Dasari Card" />
           </div>
-          <div class="col-sm-7" style="background-color: #DDEAF3">
+          <div class="col-sm-7" style="background-color: #ddeaf3">
             <div class="card-body">
               <h5 class="card-title">{{ card.runName }}</h5>
               <p class="card-text">Prize Pool: ${{ card.prizePool }}</p>
@@ -31,11 +32,11 @@
           <div class="col-sm-5">
             <img class="card-img" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="Suresh Dasari Card" />
           </div>
-          <div class="col-sm-7" style="background-color: #DDEAF3">
+          <div class="col-sm-7" style="background-color: #ddeaf3">
             <div class="card-body">
               <h5 class="card-title">{{ card.runName }}</h5>
               <p class="card-text">Prize Pool: ${{ card.prizePool }}</p>
-              <p class="card-text">in {{ card.startTime }}</p>
+              <p class="card-text">{{ card.startTime }}</p>
             </div>
           </div>
         </div>

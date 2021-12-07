@@ -1,19 +1,30 @@
 <div class="vh-100">
   <div class="wrapper">
     <div class="header w-100 py-2">
-      <div class="d-flex flex-row justify-content-between" style="margin-top: 10px">
-        <div class="d-flex flex-column">
-          <div class="banxter d-flex flex-row">
-            <div class="mx-2">Banxter</div>
-            <div class="grade d-flex flex-row mx-2" *ngFor="let grade of grades">
-              Grades
-              <button class="info mx-2">i</button>
+      <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-column w-100">
+          <div class="banxter d-flex flex-row justify-content-around w-100">
+            <div class="">Banxter</div>
+            <div
+              class="d-flex flex-row"
+              (click)="selectLevel(grade)"
+              *ngFor="let grade of grades"
+              [ngClass]="{ 'active-grade ': selectLevelName === grade, grade: selectLevelName !== grade }"
+            >
+              {{ grade }}
+              <button class="info mx-1">i</button>
             </div>
           </div>
-          <div class="device d-flex flex-row">
-            <div class="mining-device w-100 h-100 m-2" *ngFor="let grade of grades2">
-              <div class="dev">VIDEOCARDS</div>
-              <div class="text">DEFAULT</div>
+          <div class="device mt-1 d-flex flex-row">
+            <div
+              class="mining-device w-100 h-100 mx-1"
+              *ngFor="let grade2 of grades2"
+              [ngClass]="{ 'active-miner': selectItem === grade2.name, 'mining-device': selectItem !== grade2.name }"
+            >
+              <button class="miner-button" (click)="selectMiner(grade2.name, grade2)">
+                <div class="dev">{{ grade2.name }}</div>
+                <div class="text">{{ grade2.status }}</div>
+              </button>
             </div>
           </div>
         </div>
@@ -33,21 +44,29 @@
         </div>
       </div>
     </div>
-    <div class="mining w-100">
+    <div class="mining w-100" *ngIf="selectActiveMiner && selectActiveMiner.rent">
       <div class="token d-flex flex-column">
         <div class="mining-text my-2" style="width: 10rem; background-color: #bfd4e4">some text</div>
         <div class="mining-text my-2" style="width: 15rem; background-color: #ddeaf3">some text</div>
         <div class="mining-text my-2" style="width: 15rem; background-color: #ddeaf3">some text</div>
         <div class="mining-text my-2" style="width: 13rem; background-color: #ddeaf3">some text</div>
-        <button class="collect my-2 btn">Collect tokens</button>
-        <!--        <button *ngIf="!load" class="collect my-2 btn btn-primary">Collect tokens</button>-->
-        <!--        <button *ngIf="load" class="collect my-2 btn btn-secondary">Collect tokens in 4h 34m</button>-->
+        <!--        <button class="collect my-2 btn">Collect tokens</button>-->
+        <button *ngIf="selectActiveMiner.collect" class="collect my-2 btn btn-primary" (click)="collectTokens()">
+          Collect tokens
+        </button>
+        <button
+          *ngIf="!selectActiveMiner.collect && timeLeft"
+          [disabled]="timeLeft"
+          class="disable-collect my-2 btn btn-secondary"
+        >
+          Collect tokens in {{ timeLeft[1] }}h {{ timeLeft[2] }}m {{ timeLeft[3] }}s
+        </button>
       </div>
       <div class="time d-flex">
-        <div class="d-flex">
+        <div class="d-flex" *ngIf="timeLeft && percent">
           <circle-progress
             style="text-align: center"
-            [percent]="85"
+            [percent]="percent"
             [radius]="20"
             [backgroundPadding]="7"
             [space]="-2"
@@ -55,16 +74,51 @@
             [outerStrokeColor]="'#808080'"
             [innerStrokeColor]="'#e7e8ea'"
             [innerStrokeWidth]="2"
-            [title]="['5 days', '4 hours', '32 mins']"
+            [title]="[timeLeft[0] + ' days', timeLeft[1] + ' hours', timeLeft[2] + ' mins']"
             [titleFontSize]="'4'"
             [subtitleFontSize]="'4'"
             [animateTitle]="false"
+            [startFromZero]="false"
+            [showSubtitle]="false"
             [animationDuration]="1000"
             [showUnits]="false"
-            [clockwise]="false"
+            [clockwise]="true"
           ></circle-progress>
         </div>
       </div>
+      <button class="btn btn-primary position-absolute" (click)="goBack()" style="bottom: 0; left: 0">Go Back</button>
+    </div>
+
+    <div class="mining w-100" *ngIf="selectActiveMiner && !selectActiveMiner.rent">
+      <div class="token d-flex flex-column">
+        <div class="mining-text my-2" style="width: 8rem; background-color: #ddeaf3">TEXT</div>
+        <div class="mining-text my-2" style="width: 12rem; background-color: #ddeaf3">TEXT</div>
+        <div class="tips d-flex flex-row">
+          <button
+            class="m-2 tips-text"
+            [ngClass]="{ 'active-rent': selectRent === 30, 'tips-text': selectRent !== 30 }"
+            (click)="selectRentTime(30)"
+          >
+            30 days
+          </button>
+          <button
+            class="m-2 tips-text"
+            [ngClass]="{ 'active-rent': selectRent === 60, 'tips-text': selectRent !== 60 }"
+            (click)="selectRentTime(60)"
+          >
+            60 days
+          </button>
+          <button
+            class="m-2 tips-text"
+            [ngClass]="{ 'active-rent': selectRent === 90, 'tips-text': selectRent !== 90 }"
+            (click)="selectRentTime(90)"
+          >
+            90 days
+          </button>
+        </div>
+        <button class="collect my-2 btn btn-primary" style="width: 8rem">Rent</button>
+      </div>
+      <button class="btn btn-primary position-absolute" (click)="goBack()" style="bottom: 0; left: 0">Go Back</button>
     </div>
   </div>
 </div>

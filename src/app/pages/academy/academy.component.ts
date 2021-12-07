@@ -30,4 +30,8 @@ export class AcademyComponent implements OnInit {
   goToAdd(): void {
     // this.rout.navigateByUrl('/academy');
   }
+
+  goBack(): void {
+    this.rout.navigateByUrl('/profile');
+  }
 }

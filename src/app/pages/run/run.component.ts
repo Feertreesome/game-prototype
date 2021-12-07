@@ -1,5 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { gsap } from 'gsap';
 import { Color, Label } from 'ng2-charts';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
@@ -148,10 +147,13 @@ export class RunComponent implements OnInit {
 
   constructor(private route: Router) {}
 
+  endRun(): void {
+    clearInterval(this.sumTimer);
+    clearInterval(this.timer);
+    this.route.navigate(['/end-run'], { queryParams: { won: true } });
+  }
+
   ngOnInit(): void {
-    setTimeout(() => {
-      console.log();
-    });
     this.img.src = '/assets/img/avatart/avatar.png';
 
     this.img.onload = () => {
@@ -178,16 +180,13 @@ export class RunComponent implements OnInit {
 
           const animationIndex = this.animationArray?.indexOf(findCurrentUser) as number;
 
-          console.log(this.usersInRun?.nativeElement.children[index].offsetTop, 'offsetTop');
-          console.log(this.usersInRun?.nativeElement.children[index].clientHeight, 'clientHeight');
-          const h1 = this.usersInRun?.nativeElement.children[1].offsetTop;
-          const h0 = this.usersInRun?.nativeElement.children[0].offsetTop;
+          const offsetTopHeightOld = this.usersInRun?.nativeElement.children[1].offsetTop;
+          const offsetTopHeightNew = this.usersInRun?.nativeElement.children[0].offsetTop;
 
-          const clientH = this.usersInRun?.nativeElement.children[index].clientHeight;
-          console.log(h1, 'H1');
-          console.log(h0, 'H0');
-          let sum = clientH + h1 - h0 - clientH;
-          const offset = user.userName === 'My User' ? -62 : -59;
+          const clientHeight = this.usersInRun?.nativeElement.children[index].clientHeight;
+
+          const sum = clientHeight + offsetTopHeightOld - offsetTopHeightNew - clientHeight;
+
           if (index > animationIndex) {
             const res = index - animationIndex;
             gsap.to(`.user-order-${index}`, { y: -sum * res, duration: 1 });
@@ -256,10 +255,7 @@ export class RunComponent implements OnInit {
 
   selectUser(participant: any): void {
     this.clHeight = this.usersInRun?.nativeElement.clientHeight;
-    console.log(this.usersInRun?.nativeElement.clientHeight, 'this.usersInRun?.nativeElement.clientHeight');
     this.activeParticipant = participant;
-    console.log(this.activeParticipant, 'this.activeParticipant');
-    console.log(participant, 'participantparticipant');
 
     this.attackedParticipant = participant;
     this.selectedParticipant = true;

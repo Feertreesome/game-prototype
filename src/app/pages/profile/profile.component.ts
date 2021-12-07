@@ -116,7 +116,7 @@ export class ProfileComponent implements OnInit {
   }
 
   goToGarage(): void {
-    this.router.navigateByUrl('/garage');
+    // this.router.navigateByUrl('/garage');
   }
 
   goToBanxter(): void {

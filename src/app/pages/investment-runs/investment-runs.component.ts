@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-investment-runs',
@@ -25,36 +25,23 @@ export class InvestmentRunsComponent implements OnInit {
     { runName: 'Hamster', prizePool: 300, startTime: '0:01' },
   ];
 
-// { runName: 'Short selling', prizePool: 3500, startTime: '2:34' },
-// { runName: 'Wolf hear', prizePool: 9300, startTime: '0:34' },
-// { runName: 'Hamster', prizePool: 300, startTime: '0:01' },
-// { runName: 'Short selling', prizePool: 3500, startTime: '2:34' },
-// { runName: 'Wolf hear', prizePool: 9300, startTime: '0:34' },
-// { runName: 'Hamster', prizePool: 300, startTime: '0:01' },
-// { runName: 'Short selling', prizePool: 3500, startTime: '2:34' },
-// { runName: 'Wolf hear', prizePool: 9300, startTime: '0:34' },
-// { runName: 'Hamster', prizePool: 300, startTime: '0:01' },
-// { runName: 'Short selling', prizePool: 3500, startTime: '2:34' },
-// { runName: 'Wolf hear', prizePool: 9300, startTime: '0:34' },
-// { runName: 'Hamster', prizePool: 300, startTime: '0:01' },
-
   public endedTestData = [
     { runName: 'Short selling', prizePool: 3500, startTime: 'won' },
     { runName: 'Wolf hear', prizePool: 9300, startTime: 'lost' },
     { runName: 'Hamster', prizePool: 300, startTime: 'won' },
   ];
 
-  constructor(
-    private rout: Router
-  ) {}
+  constructor(private rout: Router) {}
 
   ngOnInit(): void {}
 
-  handleScroll() {
-    console.log('hello scroll');
-  }
+  handleScroll() {}
 
   goToGarage(card: any) {
-    this.rout.navigateByUrl('/garage')
+    this.rout.navigateByUrl('/garage');
+  }
+
+  goToProfile() {
+    this.rout.navigateByUrl('/profile');
   }
 }

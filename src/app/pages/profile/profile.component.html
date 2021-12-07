@@ -20,13 +20,13 @@
         <div class="px-2 m-1 card-cont">CONTENT</div>
       </div>
     </div>
-    <div class="side w-100 px-2">
+    <div class="side d-flex flex-column justify-content-around w-100 px-2">
       <div class="user-info d-flex flex-row w-100">
         <img class="avatar" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="" />
-        <div class="avatar-info d-flex justify-content-center flex-column w-100">
-          <div class="avatar-text" style="width: 90%">Name</div>
-          <div class="avatar-text" style="width: 70%">@Name</div>
-          <div class="avatar-text" style="width: 50%">Level 5</div>
+        <div class="avatar-info d-flex justify-content-around flex-column w-100">
+          <div class="avatar-text" style="width: 100%">Name</div>
+          <div class="avatar-text" style="width: fit-content">@Name</div>
+          <div class="avatar-text" style="width: fit-content">Level 5</div>
         </div>
       </div>
       <div class="d-flex justify-content-center flex-column w-100">
@@ -34,15 +34,19 @@
         <div class="w-100 balance m-1">Balance</div>
         <div class="token balance m-1">0.5 crypto token</div>
       </div>
-      <div class="card cards-card w-100 m-1" style="text-align: center" (click)="goToGarage()">
+      <div class="card d-flex flex-column cards-card w-100 m-1" style="text-align: center" (click)="goToGarage()">
         <div class="card-text mb-1">Cards</div>
         <div class="card-text" style="width: 40%">Cards</div>
       </div>
-      <div class="card w-100 m-1" style="text-align: center; align-items: center" (click)="goToBanxter()">
-        <div class="card-text m-3" style="width: 40%">Banxters</div>
+      <div
+        class="card d-flex flex-column w-100 m-1"
+        style="text-align: center; align-items: center"
+        (click)="goToBanxter()"
+      >
+        <div class="card-text" style="width: 40%">Banxters</div>
       </div>
     </div>
-    <div class="footer w-100">
+    <div class="footer d-flex flex-column justify-content-center w-100">
       <div class="card w-100 m-2">
         <div class="active-run w-100 justify-content-between d-flex flex-row h-100">
           <div class="d-flex flex-column">

@@ -3,6 +3,7 @@
   style="background-color: #f2f7f9"
   [ngClass]="{ 'tab-instruments': activeTab !== 'Cards', 'tab-cards': activeTab === 'Cards' }"
 >
+  <button class="btn btn-primary position-absolute" (click)="goBack()">Go back</button>
   <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button
@@ -37,10 +38,10 @@
   </ul>
   <div class="tab-content w-100" id="myTabContent">
     <div class="tab-pane fade show active w-100" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <div *ngIf="testedElements" class="wrapper" [ngStyle]="{ 'grid-template-rows': this.gridRowsCount }">
+      <div *ngIf="testedElements" class="wrapper" [ngStyle]="{ 'grid-template-rows': gridRowsCount }">
         <div *ngFor="let element of testedElements; index as i; let odd = odd" class="d-flex w-100 max-test">
           <div [ngClass]="{ left: !odd, right: odd }">
-            <div class="d-flex  row w-100 m-0">
+            <div class="d-flex row w-100 m-0">
               <div class="d-flex col-2 p-0">
                 <img style="width: 50px" src="/assets/img/cypto-tumb/crypto-2.jpg" alt="Card" />
               </div>
@@ -64,7 +65,8 @@
                 <label class="d-flex btn-sm btn-danger" style="align-self: center" for="sell-{{ i }}">SELL</label>
               </div>
 
-              <div class="select-button d-flex col-2 p-0"
+              <div
+                class="select-button d-flex col-2 p-0"
                 [ngClass]="{
                   'active-selected': selectedCrypto.includes(element.id),
                   'disabled-selected': selectedCrypto.length >= 5 && !selectedCrypto.includes(element.id)
@@ -81,6 +83,14 @@
     </div>
   </div>
   <div class="footer fixed-bottom py-1 d-flex justify-content-center p-0">
-    <button *ngIf="activeTab !== 'Cards'" class="btn-lg garage-btn" (click)="startRun()">START</button>
+    <button
+      *ngIf="activeTab !== 'Cards'"
+      class="btn-lg"
+      [ngClass]="{ 'disable-btn': selectedCrypto.length < 5, 'garage-btn': selectedCrypto.length === 5 }"
+      [disabled]="selectedCrypto.length < 5"
+      (click)="startRun()"
+    >
+      START
+    </button>
   </div>
 </div>

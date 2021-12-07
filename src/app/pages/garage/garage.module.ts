@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { GarageComponent } from './garage.component';
 import { GarageRoutingModule } from './garage-routing.module';
-// import { CardsModule } from '../cards/cards.module';
-import {CardsComponent} from "../cards/cards.component";
+import { CardsModule } from '../cards/cards.module';
 
 @NgModule({
-  declarations: [GarageComponent, CardsComponent],
-  imports: [CommonModule, GarageRoutingModule],
+  declarations: [GarageComponent],
+  imports: [CommonModule, GarageRoutingModule, CardsModule],
 })
 export class GarageModule {}

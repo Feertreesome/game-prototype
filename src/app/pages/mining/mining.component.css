@@ -29,6 +29,20 @@
   grid-area: header;
 }
 
+.active-miner {
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid #597393;
+  background-color: #f2f7f9;
+}
+
+.miner-button {
+  border: transparent;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+
 .mining {
   align-items: center;
   display: flex;
@@ -41,6 +55,12 @@
   align-items: center;
   border-radius: 2px;
   background-color: #d1eafc;
+}
+
+.active-grade {
+  align-items: center;
+  border-radius: 2px;
+  background-color: #f2f7f9;
 }
 
 .info {
@@ -83,4 +103,22 @@
   width: 20rem;
   background-color: #32c5ff;
   border-color: #32c5ff;
+}
+
+.disable-collect {
+  width: 20rem;
+  background-color: #acb0ac;
+  border-color: #2f302f;
+}
+
+.active-rent {
+  border-radius: 3px;
+  background-color: #e6e6e8;
+  border: 1px solid #ddeaf3;
+}
+
+.tips-text {
+  border-radius: 3px;
+  background-color: transparent;
+  border: 1px solid #ddeaf3;
 }

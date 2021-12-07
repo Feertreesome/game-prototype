@@ -24,7 +24,6 @@ export class GarageComponent implements OnInit {
   constructor(private rout: Router, private render: Renderer2) {}
 
   ngOnInit(): void {
-    // repeat(2, 1fr)
     this.gridRowsCount = `repeat(${Math.ceil(this.testedElements.length / 2 + 1)}, 1fr)`;
   }
 
@@ -52,5 +51,9 @@ export class GarageComponent implements OnInit {
 
   startRun(): void {
     this.rout.navigateByUrl('/run');
+  }
+
+  goBack(): void {
+    this.rout.navigateByUrl('/investment-runs');
   }
 }

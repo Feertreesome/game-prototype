@@ -1,5 +1,6 @@
 <div class="vh-100 h-100">
   <div class="wrapper h-100" [ngClass]="{ attack: selectedParticipant }">
+    <button class="btn btn-primary position-absolute" (click)="endRun()" style="right: 0; top: 0">End Run</button>
     <div class="header d-flex justify-content-start row">
       <div class="mx-2 leader-text col-10 py-0 px-1">Leader Board until 1st wave</div>
       <button class="info col-1 p-0">i</button>
@@ -49,7 +50,7 @@
       <div
         class="container table-direction justify-content-around"
         [ngClass]="{ 'h-100': !activeParticipant }"
-        [ngStyle]="{'height.px': this.clHeight}"
+        [ngStyle]="{ 'height.px': this.clHeight }"
         #usersInRun
       >
         <div

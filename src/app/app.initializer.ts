@@ -1,14 +1,13 @@
 import { APP_INITIALIZER } from '@angular/core';
-import { Router} from "@angular/router";
+import { Router } from '@angular/router';
 
 export function appInitializerFactory(rout: Router) {
-
   return () => {
-    new Promise(  (resolve => {
-      rout.navigate(['/login'])
+    new Promise((resolve) => {
+      rout.navigate(['/login']);
       resolve(1);
-    }))
-  }
+    });
+  };
 }
 
 export const APP_INITIALIZER_PROVIDER = {
